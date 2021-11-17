@@ -1,0 +1,87 @@
+
+@use "./base/resets";
+@use "./abstracts/colors" as *;
+@use "./components/button" as *;
+@use "./abstracts/mixins" as *;
+
+
+main{
+    padding: min(15vw, 3rem);
+}
+
+.container{
+    margin: 0 auto;
+    width: min(90%, 400px);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    @include mediaQuery(small){
+      width: min(80%, 1050px);
+      flex-direction: row;
+      align-items: stretch;
+      height: clamp(430px, 60vh, 500px);
+    }
+}
+
+.card{
+    padding: 3rem 2rem 6rem;
+    position: relative;
+    flex: 1;
+    height: min(50vh, 400px);
+
+    &__icon{
+        width: 50px;
+    }
+    
+    &__heading{
+        font-family: 'Big Shoulders Display', cursive;
+        font-weight: 700;
+        color: $very-light-gray;
+    }
+
+    &__text{
+        font-family: 'Lexend Deca', sans-serif;
+        font-weight: 400;
+        color: $trans-white;
+        line-height: 1.6;
+        font-size: clamp(0.8rem, 0.8rem + 1vw, 0.9rem);
+
+    }
+    &--orange{
+        background-color: $bright-orange;
+    }
+    &--cyan{
+        background-color: $dark-cyan;
+    }
+    &--dark-cyan{
+        background-color: $very-dark-cyan;
+    }
+
+    @include mediaQuery(small){
+      height: auto;
+    }
+}
+
+
+
+.btn{
+    position: absolute;
+    bottom: 2.5rem;
+    @include button (orange, $bright-orange);
+    @include button (cyan, $dark-cyan);
+    @include button (dark-cyan, $very-dark-cyan);
+}
+
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
